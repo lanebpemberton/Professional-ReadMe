@@ -2,11 +2,13 @@
 const inquirer = require('inquirer');
 //require file system to write read me file
 const fs = require('fs');
+//specify readme file path
+const readmeFilePath = "ReadMe.md";
 
 //append data to readme file
 function appendDataToReadMe(data)
 {
-    fs.appendFileSync("ReadMe.md",data);
+    fs.appendFileSync(readmeFilePath,data);
 }
 
 //append gnu badge to readme
@@ -29,7 +31,7 @@ function appendTitleToReadMe(title)
 //create table of conents that reference rest of user's choices
 function appendTableOfContents()
 {
-    appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Credits](#credits)\n- [License](#license)\n\n")
+    appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Contribution Guidelines](#Contribution Guidelines)\n- [Tests](#Tests)\n\n")
 }
 
 //append description to readme
@@ -103,6 +105,9 @@ inquirer
       },
   ])
   .then(answers => {
+    //first create new file (overwrite existing if file exists)
+    fs.writeFileSync(readmeFilePath,"");
+
     //deal with each user input in turn
     appendLicenseBadgeToReadMe(answers.license);
     appendTitleToReadMe(answers.title);
