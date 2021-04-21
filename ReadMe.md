@@ -1,32 +1,32 @@
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-# lane test
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+# My Professional ReadMe Generator
 
 ## Description
 
-testing
+Create quick and professional readmes
 
 ## Table of Contents
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contribution Guidelines](#Contribution-Guidelines)
+- [Contribution Guidelines](#Contribution Guidelines)
 - [Tests](#Tests)
 
 ## Installation
 
-pls test
+Run node index.js
 
 ## Usage
 
-you know test
+Answer prompted questions
 
 ## Contribution Guidelines
 
-sdfsd
+I'll review your push requests
 
 ## Tests
 
-sdfds
+None so far
 
 ## Questions
 
@@ -34,4 +34,4 @@ sdfds
 
 
 
-Reach out to me with any questions surrounding this project at: slsaf
+Reach out to me with any questions surrounding this project at: lanebpemberton@gmail.com
