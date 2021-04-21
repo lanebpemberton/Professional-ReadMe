@@ -9,7 +9,7 @@ testing
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contribution Guidelines](#Contribution Guidelines)
+- [Contribution Guidelines](#Contribution-Guidelines)
 - [Tests](#Tests)
 
 ## Installation
