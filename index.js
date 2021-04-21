@@ -9,16 +9,33 @@ function appendDataToReadMe(data)
     fs.appendFileSync("ReadMe.md",data);
 }
 
+function appendTableOfContents()
+{
+    appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Credits](#credits)\n- [License](#license)")
+}
+
 //append title to readme
 function appendTitleToReadMe(title)
 {
-    appendDataToReadMe(title);
+    appendDataToReadMe(`# ${title}`);
+}
+
+//append description to readme
+function appendDescriptionToReadMe(descriptionTitle, descriptionContents)
+{
+    appendDataToReadMe(`## ${descriptionTitle}\n\n${descriptionContents}\n\n`);
+}
+
+//append line item to read me
+function appendLineItemToReadMe(lineItem)
+{
+    appendDataToReadMe(`- ${lineItem}`)
 }
 
 //append link to read me
 function appendLinkToReadMe(link)
 {
-    
+
 }
 
 //WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
@@ -65,8 +82,11 @@ inquirer
   ])
   .then(answers => {
     //deal with each user input in turn
-    console.log(answers.projectTitle);
-    console.log(answers.projectType);
+    appendTitleToReadMe(answers.title);
+    appendDescriptionToReadMe("Description",answers.description);
+    appendTableOfContents();
+    appendDescriptionToReadMe("Installation",answers.installation);
+    appe
   })
   .catch(error => {
       //boiler plate error handling from inquire
