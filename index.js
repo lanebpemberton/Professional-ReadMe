@@ -9,16 +9,27 @@ function appendDataToReadMe(data)
     fs.appendFileSync("ReadMe.md",data);
 }
 
-//create table of conents that reference rest of user's choices
-function appendTableOfContents()
+//append gnu badge to readme
+function appendLicenseBadgeToReadMe(license)
 {
-    appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Credits](#credits)\n- [License](#license)")
+    let badgeObj = 
+    {
+        "MIT":"[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)\n",
+        "GNU GPLv3":"[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)\n"
+    }
+    appendDataToReadMe(badgeObj[license]);
 }
 
 //append title to readme
 function appendTitleToReadMe(title)
 {
-    appendDataToReadMe(`# ${title}`);
+    appendDataToReadMe(`# ${title}\n\n`);
+}
+
+//create table of conents that reference rest of user's choices
+function appendTableOfContents()
+{
+    appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Credits](#credits)\n- [License](#license)\n\n")
 }
 
 //append description to readme
@@ -34,9 +45,9 @@ function appendLineItemToReadMe(lineItem)
 }
 
 //append link to read me
-function appendLinkToReadMe(link)
+function appendGithubProfileToDescription(profile)
 {
-
+    appendDescriptionToReadMe("Questions",`[Github Profile](https://github.com/${profile})\n\n`)
 }
 
 //WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
@@ -78,11 +89,22 @@ inquirer
           name:"license",
           type:"list",
           message: "Select what type of license you're project",
-          choices:["Node Project", "C# Project", "React Project"]
-      }
+          choices:["GNU GPLv3", "MIT"]
+      },
+      {
+        name: "github",
+        type: "input",
+        message: "Enter your github username"
+      },
+      {
+        name: "email",
+        type: "input",
+        message: "Enter your email you wish to be reached with regarding questions on this project"
+      },
   ])
   .then(answers => {
     //deal with each user input in turn
+    appendLicenseBadgeToReadMe(answers.license);
     appendTitleToReadMe(answers.title);
     appendDescriptionToReadMe("Description",answers.description);
     appendTableOfContents();
@@ -90,6 +112,8 @@ inquirer
     appendDescriptionToReadMe("Usage",answers.usage);
     appendDescriptionToReadMe("Contribution Guidelines",answers.contributionGuidelines);
     appendDescriptionToReadMe("Tests",answers.testInstructions);
+    appendGithubProfileToDescription(answers.github);
+    appendDataToReadMe("Reach out to me with any questions surrounding this project at: " + answers.email);
   })
   .catch(error => {
       //boiler plate error handling from inquire
