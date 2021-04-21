@@ -9,6 +9,7 @@ function appendDataToReadMe(data)
     fs.appendFileSync("ReadMe.md",data);
 }
 
+//create table of conents that reference rest of user's choices
 function appendTableOfContents()
 {
     appendDataToReadMe("## Table of Contents\n\n- [Installation](#installation)\n- [Usage](#usage)\n- [Credits](#credits)\n- [License](#license)")
@@ -72,13 +73,13 @@ inquirer
         name: "testInstructions",
         type: "input",
         message: "Enter your project's test instructions"
-      }
-      /*{
-          name:"projectType",
+      },
+      {
+          name:"license",
           type:"list",
-          message: "Select what type of project you're describing",
+          message: "Select what type of license you're project",
           choices:["Node Project", "C# Project", "React Project"]
-      }*/
+      }
   ])
   .then(answers => {
     //deal with each user input in turn
@@ -86,7 +87,9 @@ inquirer
     appendDescriptionToReadMe("Description",answers.description);
     appendTableOfContents();
     appendDescriptionToReadMe("Installation",answers.installation);
-    appe
+    appendDescriptionToReadMe("Usage",answers.usage);
+    appendDescriptionToReadMe("Contribution Guidelines",answers.contributionGuidelines);
+    appendDescriptionToReadMe("Tests",answers.testInstructions);
   })
   .catch(error => {
       //boiler plate error handling from inquire
