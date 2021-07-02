@@ -1,9 +1,9 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-# Employee Tracker
+# E-Commerce Back End
 
 ## Description
 
-View and manage employees in various departments with this simple command line interface
+Navigate through data saved to an e-commerce back end via api calls. Create, Update, Find, Find All, and Delete various types of categories, products, and tags
 
 ## Table of Contents
 
@@ -14,19 +14,19 @@ View and manage employees in various departments with this simple command line i
 
 ## Installation
 
-Download project, run `npm install`, and then run `npm start`
+Setup your own mysql connection information in a .env file. Take a look in config/connection.js to make sure your parameters are being handled by sequelize correctly. Finally, run 'npm start'
 
 ## Usage
 
-This project may be used in any capacity
+Intended to be used as an example for simple sequelize functionality and modeling in a working back end environment
 
 ## Contribution Guidelines
 
-I'll approve pull requests aimed at making the application more dynamic
+Any effort towards refactoring existing routes with non async/await code will be immediatly accepted
 
 ## Tests
 
-Try to create as many test records before venturing too far into other aspects of the application's features
+Open Insomnia or your api test client of choice and start running routes through it
 
 ## Questions
 
